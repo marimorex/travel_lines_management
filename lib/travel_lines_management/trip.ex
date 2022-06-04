@@ -389,4 +389,100 @@ defmodule TravelLinesManagement.Trip do
   def change_travel(%Travel{} = travel, attrs \\ %{}) do
     Travel.changeset(travel, attrs)
   end
+
+  alias TravelLinesManagement.Trip.TravelDetail
+
+  @doc """
+  Returns the list of travel_details.
+
+  ## Examples
+
+      iex> list_travel_details()
+      [%TravelDetail{}, ...]
+
+  """
+  def list_travel_details do
+    Repo.all(TravelDetail)
+  end
+
+  @doc """
+  Gets a single travel_detail.
+
+  Raises `Ecto.NoResultsError` if the Travel detail does not exist.
+
+  ## Examples
+
+      iex> get_travel_detail!(123)
+      %TravelDetail{}
+
+      iex> get_travel_detail!(456)
+      ** (Ecto.NoResultsError)
+
+  """
+  def get_travel_detail!(id), do: Repo.get!(TravelDetail, id)
+
+  @doc """
+  Creates a travel_detail.
+
+  ## Examples
+
+      iex> create_travel_detail(%{field: value})
+      {:ok, %TravelDetail{}}
+
+      iex> create_travel_detail(%{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def create_travel_detail(attrs \\ %{}) do
+    %TravelDetail{}
+    |> TravelDetail.changeset(attrs)
+    |> Repo.insert()
+  end
+
+  @doc """
+  Updates a travel_detail.
+
+  ## Examples
+
+      iex> update_travel_detail(travel_detail, %{field: new_value})
+      {:ok, %TravelDetail{}}
+
+      iex> update_travel_detail(travel_detail, %{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def update_travel_detail(%TravelDetail{} = travel_detail, attrs) do
+    travel_detail
+    |> TravelDetail.changeset(attrs)
+    |> Repo.update()
+  end
+
+  @doc """
+  Deletes a travel_detail.
+
+  ## Examples
+
+      iex> delete_travel_detail(travel_detail)
+      {:ok, %TravelDetail{}}
+
+      iex> delete_travel_detail(travel_detail)
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def delete_travel_detail(%TravelDetail{} = travel_detail) do
+    Repo.delete(travel_detail)
+  end
+
+  @doc """
+  Returns an `%Ecto.Changeset{}` for tracking travel_detail changes.
+
+  ## Examples
+
+      iex> change_travel_detail(travel_detail)
+      %Ecto.Changeset{data: %TravelDetail{}}
+
+  """
+  def change_travel_detail(%TravelDetail{} = travel_detail, attrs \\ %{}) do
+    TravelDetail.changeset(travel_detail, attrs)
+  end
 end

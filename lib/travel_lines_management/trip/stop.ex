@@ -16,7 +16,7 @@ defmodule TravelLinesManagement.Trip.Stop do
 
     timestamps()
     belongs_to :line, TravelLinesManagement.Trip.Line, foreign_key: :line_id, references: :line_id
-
+    has_many :travel_details, TravelLinesManagement.Trip.TravelDetail, foreign_key: :stop_id, references: :stop_id
   end
 
   @doc false

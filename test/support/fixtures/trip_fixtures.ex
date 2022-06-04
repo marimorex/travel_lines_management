@@ -70,4 +70,23 @@ defmodule TravelLinesManagement.TripFixtures do
 
     travel
   end
+
+  @doc """
+  Generate a travel_detail.
+  """
+  def travel_detail_fixture(attrs \\ %{}) do
+    {:ok, travel_detail} =
+      attrs
+      |> Enum.into(%{
+        arrival: ~N[2022-06-03 17:06:00],
+        departure: ~N[2022-06-03 17:06:00],
+        passangers_get_down_stop: 42,
+        passangers_get_on_stop: 42,
+        passangers_on_board: 42,
+        status: 42
+      })
+      |> TravelLinesManagement.Trip.create_travel_detail()
+
+    travel_detail
+  end
 end

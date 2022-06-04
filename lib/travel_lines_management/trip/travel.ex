@@ -13,6 +13,7 @@ defmodule TravelLinesManagement.Trip.Travel do
     timestamps()
     belongs_to :line, TravelLinesManagement.Trip.Line, foreign_key: :line_id, references: :line_id
     belongs_to :vehicle, TravelLinesManagement.Trip.Vehicle, foreign_key: :vehicle_id, references: :vehicle_id
+    has_many :travel_details, TravelLinesManagement.Trip.TravelDetail, foreign_key: :travel_id, references: :travel_id
   end
 
   @doc false

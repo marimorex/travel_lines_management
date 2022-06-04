@@ -240,4 +240,68 @@ defmodule TravelLinesManagement.TripTest do
       assert %Ecto.Changeset{} = Trip.change_travel(travel)
     end
   end
+
+  describe "travel_details" do
+    alias TravelLinesManagement.Trip.TravelDetail
+
+    import TravelLinesManagement.TripFixtures
+
+    @invalid_attrs %{arrival: nil, departure: nil, passangers_get_down_stop: nil, passangers_get_on_stop: nil, passangers_on_board: nil, status: nil}
+
+    test "list_travel_details/0 returns all travel_details" do
+      travel_detail = travel_detail_fixture()
+      assert Trip.list_travel_details() == [travel_detail]
+    end
+
+    test "get_travel_detail!/1 returns the travel_detail with given id" do
+      travel_detail = travel_detail_fixture()
+      assert Trip.get_travel_detail!(travel_detail.id) == travel_detail
+    end
+
+    test "create_travel_detail/1 with valid data creates a travel_detail" do
+      valid_attrs = %{arrival: ~N[2022-06-03 17:06:00], departure: ~N[2022-06-03 17:06:00], passangers_get_down_stop: 42, passangers_get_on_stop: 42, passangers_on_board: 42, status: 42}
+
+      assert {:ok, %TravelDetail{} = travel_detail} = Trip.create_travel_detail(valid_attrs)
+      assert travel_detail.arrival == ~N[2022-06-03 17:06:00]
+      assert travel_detail.departure == ~N[2022-06-03 17:06:00]
+      assert travel_detail.passangers_get_down_stop == 42
+      assert travel_detail.passangers_get_on_stop == 42
+      assert travel_detail.passangers_on_board == 42
+      assert travel_detail.status == 42
+    end
+
+    test "create_travel_detail/1 with invalid data returns error changeset" do
+      assert {:error, %Ecto.Changeset{}} = Trip.create_travel_detail(@invalid_attrs)
+    end
+
+    test "update_travel_detail/2 with valid data updates the travel_detail" do
+      travel_detail = travel_detail_fixture()
+      update_attrs = %{arrival: ~N[2022-06-04 17:06:00], departure: ~N[2022-06-04 17:06:00], passangers_get_down_stop: 43, passangers_get_on_stop: 43, passangers_on_board: 43, status: 43}
+
+      assert {:ok, %TravelDetail{} = travel_detail} = Trip.update_travel_detail(travel_detail, update_attrs)
+      assert travel_detail.arrival == ~N[2022-06-04 17:06:00]
+      assert travel_detail.departure == ~N[2022-06-04 17:06:00]
+      assert travel_detail.passangers_get_down_stop == 43
+      assert travel_detail.passangers_get_on_stop == 43
+      assert travel_detail.passangers_on_board == 43
+      assert travel_detail.status == 43
+    end
+
+    test "update_travel_detail/2 with invalid data returns error changeset" do
+      travel_detail = travel_detail_fixture()
+      assert {:error, %Ecto.Changeset{}} = Trip.update_travel_detail(travel_detail, @invalid_attrs)
+      assert travel_detail == Trip.get_travel_detail!(travel_detail.id)
+    end
+
+    test "delete_travel_detail/1 deletes the travel_detail" do
+      travel_detail = travel_detail_fixture()
+      assert {:ok, %TravelDetail{}} = Trip.delete_travel_detail(travel_detail)
+      assert_raise Ecto.NoResultsError, fn -> Trip.get_travel_detail!(travel_detail.id) end
+    end
+
+    test "change_travel_detail/1 returns a travel_detail changeset" do
+      travel_detail = travel_detail_fixture()
+      assert %Ecto.Changeset{} = Trip.change_travel_detail(travel_detail)
+    end
+  end
 end

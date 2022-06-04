@@ -12,6 +12,7 @@ defmodule TravelLinesManagement.Trip.Line do
 
     timestamps()
     has_many :stops, TravelLinesManagement.Trip.Stop, foreign_key: :line_id, references: :line_id
+    has_many :travels, TravelLinesManagement.Trip.Travel, foreign_key: :line_id, references: :line_id
   end
 
   @spec changeset(
