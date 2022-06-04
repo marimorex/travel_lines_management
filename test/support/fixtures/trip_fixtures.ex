@@ -54,4 +54,20 @@ defmodule TravelLinesManagement.TripFixtures do
 
     vehicle
   end
+
+  @doc """
+  Generate a travel.
+  """
+  def travel_fixture(attrs \\ %{}) do
+    {:ok, travel} =
+      attrs
+      |> Enum.into(%{
+        arrival: ~N[2022-06-03 16:48:00],
+        departure: ~N[2022-06-03 16:48:00],
+        status: 42
+      })
+      |> TravelLinesManagement.Trip.create_travel()
+
+    travel
+  end
 end

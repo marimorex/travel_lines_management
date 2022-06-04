@@ -22,7 +22,7 @@ defmodule TravelLinesManagement.Trip.Stop do
   @doc false
   def changeset(stop, attrs) do
     stop
-    |> cast(attrs, [:name, :order, :city_name, :time, :gps_latitude, :gps_longitude, :status])
+    |> cast(attrs, [:name, :order, :city_name, :time, :gps_latitude, :gps_longitude, :status, :line_id])
     |> validate_required([:name, :order, :city_name, :time, :status])
   end
 end

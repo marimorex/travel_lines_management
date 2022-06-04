@@ -182,4 +182,62 @@ defmodule TravelLinesManagement.TripTest do
       assert %Ecto.Changeset{} = Trip.change_vehicle(vehicle)
     end
   end
+
+  describe "travels" do
+    alias TravelLinesManagement.Trip.Travel
+
+    import TravelLinesManagement.TripFixtures
+
+    @invalid_attrs %{arrival: nil, departure: nil, status: nil}
+
+    test "list_travels/0 returns all travels" do
+      travel = travel_fixture()
+      assert Trip.list_travels() == [travel]
+    end
+
+    test "get_travel!/1 returns the travel with given id" do
+      travel = travel_fixture()
+      assert Trip.get_travel!(travel.id) == travel
+    end
+
+    test "create_travel/1 with valid data creates a travel" do
+      valid_attrs = %{arrival: ~N[2022-06-03 16:48:00], departure: ~N[2022-06-03 16:48:00], status: 42}
+
+      assert {:ok, %Travel{} = travel} = Trip.create_travel(valid_attrs)
+      assert travel.arrival == ~N[2022-06-03 16:48:00]
+      assert travel.departure == ~N[2022-06-03 16:48:00]
+      assert travel.status == 42
+    end
+
+    test "create_travel/1 with invalid data returns error changeset" do
+      assert {:error, %Ecto.Changeset{}} = Trip.create_travel(@invalid_attrs)
+    end
+
+    test "update_travel/2 with valid data updates the travel" do
+      travel = travel_fixture()
+      update_attrs = %{arrival: ~N[2022-06-04 16:48:00], departure: ~N[2022-06-04 16:48:00], status: 43}
+
+      assert {:ok, %Travel{} = travel} = Trip.update_travel(travel, update_attrs)
+      assert travel.arrival == ~N[2022-06-04 16:48:00]
+      assert travel.departure == ~N[2022-06-04 16:48:00]
+      assert travel.status == 43
+    end
+
+    test "update_travel/2 with invalid data returns error changeset" do
+      travel = travel_fixture()
+      assert {:error, %Ecto.Changeset{}} = Trip.update_travel(travel, @invalid_attrs)
+      assert travel == Trip.get_travel!(travel.id)
+    end
+
+    test "delete_travel/1 deletes the travel" do
+      travel = travel_fixture()
+      assert {:ok, %Travel{}} = Trip.delete_travel(travel)
+      assert_raise Ecto.NoResultsError, fn -> Trip.get_travel!(travel.id) end
+    end
+
+    test "change_travel/1 returns a travel changeset" do
+      travel = travel_fixture()
+      assert %Ecto.Changeset{} = Trip.change_travel(travel)
+    end
+  end
 end
