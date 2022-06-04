@@ -11,8 +11,17 @@ defmodule TravelLinesManagement.Trip.Line do
     field :status, :integer
 
     timestamps()
+    has_many :stops, TravelLinesManagement.Trip.Stop, foreign_key: :line_id, references: :line_id
   end
 
+  @spec changeset(
+          {map, map}
+          | %{
+              :__struct__ => atom | %{:__changeset__ => map, optional(any) => any},
+              optional(atom) => any
+            },
+          :invalid | %{optional(:__struct__) => none, optional(atom | binary) => any}
+        ) :: Ecto.Changeset.t()
   @doc false
   def changeset(line, attrs) do
     line

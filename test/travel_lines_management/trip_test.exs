@@ -60,4 +60,70 @@ defmodule TravelLinesManagement.TripTest do
       assert %Ecto.Changeset{} = Trip.change_line(line)
     end
   end
+
+  describe "stops" do
+    alias TravelLinesManagement.Trip.Stop
+
+    import TravelLinesManagement.TripFixtures
+
+    @invalid_attrs %{city_name: nil, gps_latitude: nil, gps_longitude: nil, name: nil, order: nil, status: nil, time: nil}
+
+    test "list_stops/0 returns all stops" do
+      stop = stop_fixture()
+      assert Trip.list_stops() == [stop]
+    end
+
+    test "get_stop!/1 returns the stop with given id" do
+      stop = stop_fixture()
+      assert Trip.get_stop!(stop.id) == stop
+    end
+
+    test "create_stop/1 with valid data creates a stop" do
+      valid_attrs = %{city_name: "some city_name", gps_latitude: 120.5, gps_longitude: 120.5, name: "some name", order: 42, status: 42, time: ~T[14:00:00]}
+
+      assert {:ok, %Stop{} = stop} = Trip.create_stop(valid_attrs)
+      assert stop.city_name == "some city_name"
+      assert stop.gps_latitude == 120.5
+      assert stop.gps_longitude == 120.5
+      assert stop.name == "some name"
+      assert stop.order == 42
+      assert stop.status == 42
+      assert stop.time == ~T[14:00:00]
+    end
+
+    test "create_stop/1 with invalid data returns error changeset" do
+      assert {:error, %Ecto.Changeset{}} = Trip.create_stop(@invalid_attrs)
+    end
+
+    test "update_stop/2 with valid data updates the stop" do
+      stop = stop_fixture()
+      update_attrs = %{city_name: "some updated city_name", gps_latitude: 456.7, gps_longitude: 456.7, name: "some updated name", order: 43, status: 43, time: ~T[15:01:01]}
+
+      assert {:ok, %Stop{} = stop} = Trip.update_stop(stop, update_attrs)
+      assert stop.city_name == "some updated city_name"
+      assert stop.gps_latitude == 456.7
+      assert stop.gps_longitude == 456.7
+      assert stop.name == "some updated name"
+      assert stop.order == 43
+      assert stop.status == 43
+      assert stop.time == ~T[15:01:01]
+    end
+
+    test "update_stop/2 with invalid data returns error changeset" do
+      stop = stop_fixture()
+      assert {:error, %Ecto.Changeset{}} = Trip.update_stop(stop, @invalid_attrs)
+      assert stop == Trip.get_stop!(stop.id)
+    end
+
+    test "delete_stop/1 deletes the stop" do
+      stop = stop_fixture()
+      assert {:ok, %Stop{}} = Trip.delete_stop(stop)
+      assert_raise Ecto.NoResultsError, fn -> Trip.get_stop!(stop.id) end
+    end
+
+    test "change_stop/1 returns a stop changeset" do
+      stop = stop_fixture()
+      assert %Ecto.Changeset{} = Trip.change_stop(stop)
+    end
+  end
 end
