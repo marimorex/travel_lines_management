@@ -126,4 +126,60 @@ defmodule TravelLinesManagement.TripTest do
       assert %Ecto.Changeset{} = Trip.change_stop(stop)
     end
   end
+
+  describe "vehicles" do
+    alias TravelLinesManagement.Trip.Vehicle
+
+    import TravelLinesManagement.TripFixtures
+
+    @invalid_attrs %{plate: nil, status: nil}
+
+    test "list_vehicles/0 returns all vehicles" do
+      vehicle = vehicle_fixture()
+      assert Trip.list_vehicles() == [vehicle]
+    end
+
+    test "get_vehicle!/1 returns the vehicle with given id" do
+      vehicle = vehicle_fixture()
+      assert Trip.get_vehicle!(vehicle.id) == vehicle
+    end
+
+    test "create_vehicle/1 with valid data creates a vehicle" do
+      valid_attrs = %{plate: "some plate", status: 42}
+
+      assert {:ok, %Vehicle{} = vehicle} = Trip.create_vehicle(valid_attrs)
+      assert vehicle.plate == "some plate"
+      assert vehicle.status == 42
+    end
+
+    test "create_vehicle/1 with invalid data returns error changeset" do
+      assert {:error, %Ecto.Changeset{}} = Trip.create_vehicle(@invalid_attrs)
+    end
+
+    test "update_vehicle/2 with valid data updates the vehicle" do
+      vehicle = vehicle_fixture()
+      update_attrs = %{plate: "some updated plate", status: 43}
+
+      assert {:ok, %Vehicle{} = vehicle} = Trip.update_vehicle(vehicle, update_attrs)
+      assert vehicle.plate == "some updated plate"
+      assert vehicle.status == 43
+    end
+
+    test "update_vehicle/2 with invalid data returns error changeset" do
+      vehicle = vehicle_fixture()
+      assert {:error, %Ecto.Changeset{}} = Trip.update_vehicle(vehicle, @invalid_attrs)
+      assert vehicle == Trip.get_vehicle!(vehicle.id)
+    end
+
+    test "delete_vehicle/1 deletes the vehicle" do
+      vehicle = vehicle_fixture()
+      assert {:ok, %Vehicle{}} = Trip.delete_vehicle(vehicle)
+      assert_raise Ecto.NoResultsError, fn -> Trip.get_vehicle!(vehicle.id) end
+    end
+
+    test "change_vehicle/1 returns a vehicle changeset" do
+      vehicle = vehicle_fixture()
+      assert %Ecto.Changeset{} = Trip.change_vehicle(vehicle)
+    end
+  end
 end

@@ -39,4 +39,19 @@ defmodule TravelLinesManagement.TripFixtures do
 
     stop
   end
+
+  @doc """
+  Generate a vehicle.
+  """
+  def vehicle_fixture(attrs \\ %{}) do
+    {:ok, vehicle} =
+      attrs
+      |> Enum.into(%{
+        plate: "some plate",
+        status: 42
+      })
+      |> TravelLinesManagement.Trip.create_vehicle()
+
+    vehicle
+  end
 end
