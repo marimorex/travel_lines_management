@@ -11,12 +11,10 @@ defmodule TravelLinesManagementWeb.TravelDetailController do
     render(conn, "index.json", travel_details: travel_details)
   end
 
-  def create(conn, %{"travel_detail" => travel_detail_params}) do
-    with {:ok, %TravelDetail{} = travel_detail} <- Trip.create_travel_detail(travel_detail_params) do
-      conn
-      |> put_status(:created)
-      |> put_resp_header("location", Routes.travel_detail_path(conn, :show, travel_detail))
-      |> render("show.json", travel_detail: travel_detail)
+  def create(conn, %{"travel_id" => travel_id, "travel_detail" => travel_detail_params}) do
+    travel_detail_params_2 = Trip.handle_travel_detail_creation(travel_id,Map.merge(%{"travel_id" => travel_id }, travel_detail_params))
+    with {:ok, %TravelDetail{} = travel_detail} <- Trip.create_travel_detail(travel_detail_params_2) do
+      render(conn, "show.json", travel_detail: travel_detail)
     end
   end
 

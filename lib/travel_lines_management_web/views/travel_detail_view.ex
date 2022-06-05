@@ -12,7 +12,8 @@ defmodule TravelLinesManagementWeb.TravelDetailView do
 
   def render("travel_detail.json", %{travel_detail: travel_detail}) do
     %{
-      id: travel_detail.id,
+      id: travel_detail.travel_id,
+      stop_id: travel_detail.stop_id,
       departure: travel_detail.departure,
       arrival: travel_detail.arrival,
       status: travel_detail.status,

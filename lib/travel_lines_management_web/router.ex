@@ -7,6 +7,10 @@ defmodule TravelLinesManagementWeb.Router do
 
   scope "/api", TravelLinesManagementWeb do
     pipe_through :api
+
+    resources "/travels", TravelController, except: [:new, :edit] do
+      resources "/travel_details", TravelDetailController,  except: [:new, :edit]
+    end
   end
 
   # Enables LiveDashboard only for development

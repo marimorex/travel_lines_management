@@ -421,6 +421,21 @@ defmodule TravelLinesManagement.Trip do
   """
   def get_travel_detail!(id), do: Repo.get!(TravelDetail, id)
 
+  def get_previus_travel_detail_by_travel_id(travel_id), do: TravelDetail.getPreviousTravelDetail(travel_id) |> Repo.one
+
+  def handle_travel_detail_creation(travel_id,travel_detail_params ) do
+
+    previous_travel_detail = get_previus_travel_detail_by_travel_id(travel_id)
+    passangers_on_board_on_stop = travel_detail_params["passangers_get_on_stop"]- travel_detail_params["passangers_get_down_stop"]
+
+    if (previous_travel_detail != nil) do
+      passangers_on_board = passangers_on_board_on_stop + previous_travel_detail.passangers_on_board
+      Map.put(travel_detail_params,  "passangers_on_board", passangers_on_board)
+    else
+      Map.put(travel_detail_params,"passangers_on_board",passangers_on_board_on_stop)
+    end
+  end
+
   @doc """
   Creates a travel_detail.
 

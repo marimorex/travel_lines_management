@@ -1,6 +1,7 @@
 defmodule TravelLinesManagement.Trip.TravelDetail do
   use Ecto.Schema
   import Ecto.Changeset
+  import Ecto.Query, warn: false
 
   @primary_key false
 
@@ -24,4 +25,9 @@ defmodule TravelLinesManagement.Trip.TravelDetail do
     |> cast(attrs, [:departure, :arrival, :status, :passangers_get_on_stop, :passangers_get_down_stop, :passangers_on_board, :travel_id, :stop_id])
     |> validate_required([:status, :passangers_get_on_stop, :passangers_get_down_stop, :passangers_on_board, :travel_id, :stop_id])
   end
+
+  def getPreviousTravelDetail(travel_id) do
+    from td in __MODULE__, where: td.travel_id == ^travel_id, order_by: [desc: td.inserted_at], limit: 1
+  end
+
 end
