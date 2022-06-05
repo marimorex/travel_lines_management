@@ -1,0 +1,982 @@
+{
+	"info": {
+		"_postman_id": "1d99a72d-f4ae-4f37-9cb5-02de5697e906",
+		"name": "Travel_Lines_Management",
+		"description": "# Introduction\nWhat does your API do?\n\n# Overview\nThings that the developers should know about\n\n# Authentication\nWhat is the preferred way of using the API?\n\n# Error Codes\nWhat errors and status codes can a user expect?\n\n# Rate limit\nIs there a limit to the number of requests an user can send?",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6233351"
+	},
+	"item": [
+		{
+			"name": "Travels",
+			"item": [
+				{
+					"name": "Travel_details",
+					"item": [
+						{
+							"name": "create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"travel_detail\": \n    {\n        \"stop_id\": 2,\n        \"passangers_get_on_stop\" : 5,\n        \"passangers_get_down_stop\" : 0,\n        \"status\": 1\n    }\n }\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/travels/:travel_id/travel_details",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"travels",
+										":travel_id",
+										"travel_details"
+									],
+									"variable": [
+										{
+											"key": "travel_id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "add_section_to_page",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"section\": \n    {\n        \"name\": \"banner\",\n        \"type\" : 1,\n        \"description\" :\"here we have the banner secction\",\n        \"status\": 1\n    }\n }\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://ec2-3-238-26-99.compute-1.amazonaws.com:80/api/pages/:page_id/sections",
+											"protocol": "http",
+											"host": [
+												"ec2-3-238-26-99",
+												"compute-1",
+												"amazonaws",
+												"com"
+											],
+											"port": "80",
+											"path": [
+												"api",
+												"pages",
+												":page_id",
+												"sections"
+											],
+											"variable": [
+												{
+													"key": "page_id",
+													"value": "2"
+												}
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "cache-control",
+											"value": "max-age=0, private, must-revalidate"
+										},
+										{
+											"key": "content-length",
+											"value": "105"
+										},
+										{
+											"key": "content-type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "date",
+											"value": "Fri, 02 Oct 2020 19:00:15 GMT"
+										},
+										{
+											"key": "location",
+											"value": "/api/pages/9/sections"
+										},
+										{
+											"key": "server",
+											"value": "Cowboy"
+										},
+										{
+											"key": "x-request-id",
+											"value": "FjpCBymBo4osEh0AAAEi"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"section\": {\n        \"description\": \"here we have the banner secction\",\n        \"id\": 9,\n        \"name\": \"banner\",\n        \"status\": 1,\n        \"type\": 1\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "get_all",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/api/travels/:travel_id/travel_details",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"travels",
+										":travel_id",
+										"travel_details"
+									],
+									"variable": [
+										{
+											"key": "travel_id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "get_all_from_page",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://ec2-3-238-26-99.compute-1.amazonaws.com:80/api/pages/:page_id/sections",
+											"protocol": "http",
+											"host": [
+												"ec2-3-238-26-99",
+												"compute-1",
+												"amazonaws",
+												"com"
+											],
+											"port": "80",
+											"path": [
+												"api",
+												"pages",
+												":page_id",
+												"sections"
+											],
+											"variable": [
+												{
+													"key": "page_id",
+													"value": "2"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "cache-control",
+											"value": "max-age=0, private, must-revalidate"
+										},
+										{
+											"key": "content-length",
+											"value": "296"
+										},
+										{
+											"key": "content-type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "date",
+											"value": "Fri, 02 Oct 2020 19:01:32 GMT"
+										},
+										{
+											"key": "server",
+											"value": "Cowboy"
+										},
+										{
+											"key": "x-request-id",
+											"value": "FjpCGP5RerG1KKMAAAEy"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"sections\": [\n        {\n            \"description\": \"here we have the banner secction\",\n            \"id\": 7,\n            \"name\": \"banner\",\n            \"status\": 1,\n            \"type\": 1\n        },\n        {\n            \"description\": \"here we have the banner secction\",\n            \"id\": 8,\n            \"name\": \"banner\",\n            \"status\": 1,\n            \"type\": 1\n        },\n        {\n            \"description\": \"here we have the banner secction\",\n            \"id\": 9,\n            \"name\": \"banner\",\n            \"status\": 1,\n            \"type\": 1\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "update_one",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/travels/:travel_id/travel_details/:stop_id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"travels",
+										":travel_id",
+										"travel_details",
+										":stop_id"
+									],
+									"variable": [
+										{
+											"key": "travel_id",
+											"value": "1"
+										},
+										{
+											"key": "stop_id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "update_one_from_page",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"section\": \n    {\n        \"name\": \"other section\",\n        \"type\" : 10,\n        \"description\" :\"test to update\",\n        \"status\": 1\n    }\n }\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://ec2-3-238-26-99.compute-1.amazonaws.com:80/api/pages/:page_id/sections/:id",
+											"protocol": "http",
+											"host": [
+												"ec2-3-238-26-99",
+												"compute-1",
+												"amazonaws",
+												"com"
+											],
+											"port": "80",
+											"path": [
+												"api",
+												"pages",
+												":page_id",
+												"sections",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "page_id",
+													"value": "2"
+												},
+												{
+													"key": "id",
+													"value": "7"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "cache-control",
+											"value": "max-age=0, private, must-revalidate"
+										},
+										{
+											"key": "content-length",
+											"value": "95"
+										},
+										{
+											"key": "content-type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "date",
+											"value": "Fri, 02 Oct 2020 19:03:43 GMT"
+										},
+										{
+											"key": "server",
+											"value": "Cowboy"
+										},
+										{
+											"key": "x-request-id",
+											"value": "FjpCN42nbbCY1xAAAAOR"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"section\": {\n        \"description\": \"test to update\",\n        \"id\": 7,\n        \"name\": \"other section\",\n        \"status\": 1,\n        \"type\": 10\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "get_one",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/api/travels/:travel_id/travel_details/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"travels",
+										":travel_id",
+										"travel_details",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "travel_id",
+											"value": "1"
+										},
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "get_one_from_page",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://ec2-3-238-26-99.compute-1.amazonaws.com:80/api/pages/:page_id/sections/:id",
+											"protocol": "http",
+											"host": [
+												"ec2-3-238-26-99",
+												"compute-1",
+												"amazonaws",
+												"com"
+											],
+											"port": "80",
+											"path": [
+												"api",
+												"pages",
+												":page_id",
+												"sections",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "page_id",
+													"value": "2"
+												},
+												{
+													"key": "id",
+													"value": "7"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "cache-control",
+											"value": "max-age=0, private, must-revalidate"
+										},
+										{
+											"key": "content-length",
+											"value": "95"
+										},
+										{
+											"key": "content-type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "date",
+											"value": "Fri, 02 Oct 2020 19:04:27 GMT"
+										},
+										{
+											"key": "server",
+											"value": "Cowboy"
+										},
+										{
+											"key": "x-request-id",
+											"value": "FjpCQe_-rgXYCqYAAAOh"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"section\": {\n        \"description\": \"test to update\",\n        \"id\": 7,\n        \"name\": \"other section\",\n        \"status\": 1,\n        \"type\": 10\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "delete_one",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/api/travels/:travel_id/travel_details/:stop_id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"travels",
+										":travel_id",
+										"travel_details",
+										":stop_id"
+									],
+									"variable": [
+										{
+											"key": "travel_id",
+											"value": "1"
+										},
+										{
+											"key": "stop_id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "delete_one_from_page",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "http://ec2-3-238-26-99.compute-1.amazonaws.com:80/api/pages/:page_id/sections/:id",
+											"protocol": "http",
+											"host": [
+												"ec2-3-238-26-99",
+												"compute-1",
+												"amazonaws",
+												"com"
+											],
+											"port": "80",
+											"path": [
+												"api",
+												"pages",
+												":page_id",
+												"sections",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "page_id",
+													"value": "2"
+												},
+												{
+													"key": "id",
+													"value": "8"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "cache-control",
+											"value": "max-age=0, private, must-revalidate"
+										},
+										{
+											"key": "content-length",
+											"value": "40"
+										},
+										{
+											"key": "content-type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "date",
+											"value": "Fri, 02 Oct 2020 19:04:56 GMT"
+										},
+										{
+											"key": "server",
+											"value": "Cowboy"
+										},
+										{
+											"key": "x-request-id",
+											"value": "FjpCSIChVQgXgCkAAAOx"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"section\": {\n        \"detail\": \"Section Deleted\"\n    }\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\n        ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/travels",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"travels"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "create",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"page\": \n    {\n        \"name\": \"pageNameTest\",\n        \"type\" : 1,\n        \"description\":\"some description\",\n        \"status\" : 1\n    }\n }\n\n        ",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://ec2-3-238-26-99.compute-1.amazonaws.com:80/api/pages",
+									"protocol": "http",
+									"host": [
+										"ec2-3-238-26-99",
+										"compute-1",
+										"amazonaws",
+										"com"
+									],
+									"port": "80",
+									"path": [
+										"api",
+										"pages"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "cache-control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "content-length",
+									"value": "92"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "date",
+									"value": "Fri, 02 Oct 2020 18:52:41 GMT"
+								},
+								{
+									"key": "location",
+									"value": "/api/pages/2"
+								},
+								{
+									"key": "server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "x-request-id",
+									"value": "FjpBnYwfqZp9kIIAAADS"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"page\": {\n        \"description\": \"some description\",\n        \"id\": 2,\n        \"name\": \"pageNameTest\",\n        \"status\": 1,\n        \"type\": 1\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "get_all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/travels",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"travels"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get_all",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://ec2-3-238-26-99.compute-1.amazonaws.com:80/api/pages",
+									"protocol": "http",
+									"host": [
+										"ec2-3-238-26-99",
+										"compute-1",
+										"amazonaws",
+										"com"
+									],
+									"port": "80",
+									"path": [
+										"api",
+										"pages"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "cache-control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "content-length",
+									"value": "186"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "date",
+									"value": "Fri, 02 Oct 2020 18:53:02 GMT"
+								},
+								{
+									"key": "server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "x-request-id",
+									"value": "FjpBolflPuqKcOsAAALR"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"pages\": [\n        {\n            \"description\": \"some other description\",\n            \"id\": 1,\n            \"name\": \"otherPageName\",\n            \"status\": 1,\n            \"type\": 1\n        },\n        {\n            \"description\": \"some description\",\n            \"id\": 2,\n            \"name\": \"pageNameTest\",\n            \"status\": 1,\n            \"type\": 1\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "get_one",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/travels/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"travels",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get_one",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://ec2-3-238-26-99.compute-1.amazonaws.com:80/api/pages/2",
+									"protocol": "http",
+									"host": [
+										"ec2-3-238-26-99",
+										"compute-1",
+										"amazonaws",
+										"com"
+									],
+									"port": "80",
+									"path": [
+										"api",
+										"pages",
+										"2"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "cache-control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "content-length",
+									"value": "92"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "date",
+									"value": "Fri, 02 Oct 2020 18:53:44 GMT"
+								},
+								{
+									"key": "server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "x-request-id",
+									"value": "FjpBrCbBrjLSbcEAAAMB"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"page\": {\n        \"description\": \"some description\",\n        \"id\": 2,\n        \"name\": \"pageNameTest\",\n        \"status\": 1,\n        \"type\": 1\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "update_one",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"travel\": \n    {\n        \"departure\": \"2021-09-23T23:00:00\"\n    }\n }\n\n        ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/travels/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"travels",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "update_one",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"page\": \n    {\n        \"name\": \"name\"\n    }\n }\n\n        ",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://ec2-3-238-26-99.compute-1.amazonaws.com:80/api/pages/1",
+									"protocol": "http",
+									"host": [
+										"ec2-3-238-26-99",
+										"compute-1",
+										"amazonaws",
+										"com"
+									],
+									"port": "80",
+									"path": [
+										"api",
+										"pages",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "cache-control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "content-length",
+									"value": "90"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "date",
+									"value": "Fri, 02 Oct 2020 18:54:26 GMT"
+								},
+								{
+									"key": "server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "x-request-id",
+									"value": "FjpBtg0OcxksZ5QAAADi"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"page\": {\n        \"description\": \"some other description\",\n        \"id\": 1,\n        \"name\": \"name\",\n        \"status\": 1,\n        \"type\": 1\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "delete_one",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/travels/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"travels",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "delete_one",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://ec2-3-238-26-99.compute-1.amazonaws.com:80/api/pages/4",
+									"protocol": "http",
+									"host": [
+										"ec2-3-238-26-99",
+										"compute-1",
+										"amazonaws",
+										"com"
+									],
+									"port": "80",
+									"path": [
+										"api",
+										"pages",
+										"4"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "cache-control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "content-length",
+									"value": "34"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "date",
+									"value": "Mon, 28 Sep 2020 18:29:18 GMT"
+								},
+								{
+									"key": "server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "x-request-id",
+									"value": "FjkGBHp2s98mr1IAAAXj"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"page\": {\n        \"detail\": \"Page Deleted\"\n    }\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:4000",
+			"type": "string"
+		}
+	]
+}
