@@ -20,7 +20,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"travel_detail\": \n    {\n        \"stop_id\": 2,\n        \"passangers_get_on_stop\" : 5,\n        \"passangers_get_down_stop\" : 0,\n        \"status\": 1\n    }\n }\n",
+									"raw": "{\n    \"travel_detail\": \n    {\n        \"stop_id\": 3,\n        \"passangers_get_on_stop\" : 3,\n        \"passangers_get_down_stop\" : 7,\n        \"status\": 1\n    }\n }\n",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -48,13 +48,13 @@
 							},
 							"response": [
 								{
-									"name": "add_section_to_page",
+									"name": "create",
 									"originalRequest": {
 										"method": "POST",
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"section\": \n    {\n        \"name\": \"banner\",\n        \"type\" : 1,\n        \"description\" :\"here we have the banner secction\",\n        \"status\": 1\n    }\n }\n",
+											"raw": "{\n    \"travel_detail\": \n    {\n        \"stop_id\": 3,\n        \"passangers_get_on_stop\" : 3,\n        \"passangers_get_down_stop\" : 7,\n        \"status\": 1\n    }\n }\n",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -62,31 +62,26 @@
 											}
 										},
 										"url": {
-											"raw": "http://ec2-3-238-26-99.compute-1.amazonaws.com:80/api/pages/:page_id/sections",
-											"protocol": "http",
+											"raw": "{{base_url}}/api/travels/:travel_id/travel_details",
 											"host": [
-												"ec2-3-238-26-99",
-												"compute-1",
-												"amazonaws",
-												"com"
+												"{{base_url}}"
 											],
-											"port": "80",
 											"path": [
 												"api",
-												"pages",
-												":page_id",
-												"sections"
+												"travels",
+												":travel_id",
+												"travel_details"
 											],
 											"variable": [
 												{
-													"key": "page_id",
-													"value": "2"
+													"key": "travel_id",
+													"value": "1"
 												}
 											]
 										}
 									},
-									"status": "Created",
-									"code": 201,
+									"status": "OK",
+									"code": 200,
 									"_postman_previewlanguage": "json",
 									"header": [
 										{
@@ -95,7 +90,7 @@
 										},
 										{
 											"key": "content-length",
-											"value": "105"
+											"value": "170"
 										},
 										{
 											"key": "content-type",
@@ -103,11 +98,7 @@
 										},
 										{
 											"key": "date",
-											"value": "Fri, 02 Oct 2020 19:00:15 GMT"
-										},
-										{
-											"key": "location",
-											"value": "/api/pages/9/sections"
+											"value": "Sun, 05 Jun 2022 16:38:46 GMT"
 										},
 										{
 											"key": "server",
@@ -115,11 +106,11 @@
 										},
 										{
 											"key": "x-request-id",
-											"value": "FjpCBymBo4osEh0AAAEi"
+											"value": "FvXG5X5F4TD1FHgAAAFl"
 										}
 									],
 									"cookie": [],
-									"body": "{\n    \"section\": {\n        \"description\": \"here we have the banner secction\",\n        \"id\": 9,\n        \"name\": \"banner\",\n        \"status\": 1,\n        \"type\": 1\n    }\n}"
+									"body": "{\n    \"travel_details\": {\n        \"arrival\": null,\n        \"departure\": null,\n        \"passangers_get_down_stop\": 7,\n        \"passangers_get_on_stop\": 3,\n        \"passangers_on_board\": 11,\n        \"status\": 1,\n        \"stop\": null,\n        \"travel_id\": 1\n    }\n}"
 								}
 							]
 						},
@@ -149,30 +140,25 @@
 							},
 							"response": [
 								{
-									"name": "get_all_from_page",
+									"name": "get_all",
 									"originalRequest": {
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "http://ec2-3-238-26-99.compute-1.amazonaws.com:80/api/pages/:page_id/sections",
-											"protocol": "http",
+											"raw": "{{base_url}}/api/travels/:travel_id/travel_details",
 											"host": [
-												"ec2-3-238-26-99",
-												"compute-1",
-												"amazonaws",
-												"com"
+												"{{base_url}}"
 											],
-											"port": "80",
 											"path": [
 												"api",
-												"pages",
-												":page_id",
-												"sections"
+												"travels",
+												":travel_id",
+												"travel_details"
 											],
 											"variable": [
 												{
-													"key": "page_id",
-													"value": "2"
+													"key": "travel_id",
+													"value": "1"
 												}
 											]
 										}
@@ -187,7 +173,7 @@
 										},
 										{
 											"key": "content-length",
-											"value": "296"
+											"value": "872"
 										},
 										{
 											"key": "content-type",
@@ -195,7 +181,7 @@
 										},
 										{
 											"key": "date",
-											"value": "Fri, 02 Oct 2020 19:01:32 GMT"
+											"value": "Sun, 05 Jun 2022 16:36:58 GMT"
 										},
 										{
 											"key": "server",
@@ -203,11 +189,11 @@
 										},
 										{
 											"key": "x-request-id",
-											"value": "FjpCGP5RerG1KKMAAAEy"
+											"value": "FvXGzDfle0mzkWgAAANi"
 										}
 									],
 									"cookie": [],
-									"body": "{\n    \"sections\": [\n        {\n            \"description\": \"here we have the banner secction\",\n            \"id\": 7,\n            \"name\": \"banner\",\n            \"status\": 1,\n            \"type\": 1\n        },\n        {\n            \"description\": \"here we have the banner secction\",\n            \"id\": 8,\n            \"name\": \"banner\",\n            \"status\": 1,\n            \"type\": 1\n        },\n        {\n            \"description\": \"here we have the banner secction\",\n            \"id\": 9,\n            \"name\": \"banner\",\n            \"status\": 1,\n            \"type\": 1\n        }\n    ]\n}"
+									"body": "{\n    \"travel_details\": [\n        {\n            \"arrival\": null,\n            \"departure\": null,\n            \"passangers_get_down_stop\": 0,\n            \"passangers_get_on_stop\": 10,\n            \"passangers_on_board\": 10,\n            \"status\": 1,\n            \"stop\": {\n                \"city_name\": \"Niort\",\n                \"gps_latitude\": null,\n                \"gps_longitude\": null,\n                \"id\": 1,\n                \"name\": \"Gare SNCF\",\n                \"order\": 1,\n                \"status\": 1,\n                \"time\": \"05:50:00\"\n            },\n            \"travel_id\": 1\n        },\n        {\n            \"arrival\": null,\n            \"departure\": null,\n            \"passangers_get_down_stop\": 0,\n            \"passangers_get_on_stop\": 5,\n            \"passangers_on_board\": 15,\n            \"status\": 1,\n            \"stop\": {\n                \"city_name\": \"Niort\",\n                \"gps_latitude\": null,\n                \"gps_longitude\": null,\n                \"id\": 2,\n                \"name\": \"Pl. de la Brèche\",\n                \"order\": 2,\n                \"status\": 1,\n                \"time\": \"05:55:00\"\n            },\n            \"travel_id\": 1\n        },\n        {\n            \"arrival\": null,\n            \"departure\": null,\n            \"passangers_get_down_stop\": 7,\n            \"passangers_get_on_stop\": 3,\n            \"passangers_on_board\": 11,\n            \"status\": 1,\n            \"stop\": {\n                \"city_name\": \"St-Christophe-sur-Roc\",\n                \"gps_latitude\": null,\n                \"gps_longitude\": null,\n                \"id\": 3,\n                \"name\": \"Montplaisir\",\n                \"order\": 3,\n                \"status\": 1,\n                \"time\": \"06:13:00\"\n            },\n            \"travel_id\": 1\n        }\n    ]\n}"
 								}
 							]
 						},
@@ -249,83 +235,7 @@
 									]
 								}
 							},
-							"response": [
-								{
-									"name": "update_one_from_page",
-									"originalRequest": {
-										"method": "PATCH",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"section\": \n    {\n        \"name\": \"other section\",\n        \"type\" : 10,\n        \"description\" :\"test to update\",\n        \"status\": 1\n    }\n }\n",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "http://ec2-3-238-26-99.compute-1.amazonaws.com:80/api/pages/:page_id/sections/:id",
-											"protocol": "http",
-											"host": [
-												"ec2-3-238-26-99",
-												"compute-1",
-												"amazonaws",
-												"com"
-											],
-											"port": "80",
-											"path": [
-												"api",
-												"pages",
-												":page_id",
-												"sections",
-												":id"
-											],
-											"variable": [
-												{
-													"key": "page_id",
-													"value": "2"
-												},
-												{
-													"key": "id",
-													"value": "7"
-												}
-											]
-										}
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "cache-control",
-											"value": "max-age=0, private, must-revalidate"
-										},
-										{
-											"key": "content-length",
-											"value": "95"
-										},
-										{
-											"key": "content-type",
-											"value": "application/json; charset=utf-8"
-										},
-										{
-											"key": "date",
-											"value": "Fri, 02 Oct 2020 19:03:43 GMT"
-										},
-										{
-											"key": "server",
-											"value": "Cowboy"
-										},
-										{
-											"key": "x-request-id",
-											"value": "FjpCN42nbbCY1xAAAAOR"
-										}
-									],
-									"cookie": [],
-									"body": "{\n    \"section\": {\n        \"description\": \"test to update\",\n        \"id\": 7,\n        \"name\": \"other section\",\n        \"status\": 1,\n        \"type\": 10\n    }\n}"
-								}
-							]
+							"response": []
 						},
 						{
 							"name": "get_one",
@@ -358,35 +268,30 @@
 							},
 							"response": [
 								{
-									"name": "get_one_from_page",
+									"name": "get_one",
 									"originalRequest": {
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "http://ec2-3-238-26-99.compute-1.amazonaws.com:80/api/pages/:page_id/sections/:id",
-											"protocol": "http",
+											"raw": "{{base_url}}/api/travels/:travel_id/travel_details/:id",
 											"host": [
-												"ec2-3-238-26-99",
-												"compute-1",
-												"amazonaws",
-												"com"
+												"{{base_url}}"
 											],
-											"port": "80",
 											"path": [
 												"api",
-												"pages",
-												":page_id",
-												"sections",
+												"travels",
+												":travel_id",
+												"travel_details",
 												":id"
 											],
 											"variable": [
 												{
-													"key": "page_id",
-													"value": "2"
+													"key": "travel_id",
+													"value": "1"
 												},
 												{
 													"key": "id",
-													"value": "7"
+													"value": "1"
 												}
 											]
 										}
@@ -401,7 +306,7 @@
 										},
 										{
 											"key": "content-length",
-											"value": "95"
+											"value": "171"
 										},
 										{
 											"key": "content-type",
@@ -409,7 +314,7 @@
 										},
 										{
 											"key": "date",
-											"value": "Fri, 02 Oct 2020 19:04:27 GMT"
+											"value": "Sun, 05 Jun 2022 16:37:17 GMT"
 										},
 										{
 											"key": "server",
@@ -417,11 +322,11 @@
 										},
 										{
 											"key": "x-request-id",
-											"value": "FjpCQe_-rgXYCqYAAAOh"
+											"value": "FvXG0K1_x-6DIKUAAAEF"
 										}
 									],
 									"cookie": [],
-									"body": "{\n    \"section\": {\n        \"description\": \"test to update\",\n        \"id\": 7,\n        \"name\": \"other section\",\n        \"status\": 1,\n        \"type\": 10\n    }\n}"
+									"body": "{\n    \"travel_details\": {\n        \"arrival\": null,\n        \"departure\": null,\n        \"passangers_get_down_stop\": 0,\n        \"passangers_get_on_stop\": 10,\n        \"passangers_on_board\": 10,\n        \"status\": 1,\n        \"stop\": null,\n        \"travel_id\": 1\n    }\n}"
 								}
 							]
 						},
@@ -454,74 +359,7 @@
 									]
 								}
 							},
-							"response": [
-								{
-									"name": "delete_one_from_page",
-									"originalRequest": {
-										"method": "DELETE",
-										"header": [],
-										"url": {
-											"raw": "http://ec2-3-238-26-99.compute-1.amazonaws.com:80/api/pages/:page_id/sections/:id",
-											"protocol": "http",
-											"host": [
-												"ec2-3-238-26-99",
-												"compute-1",
-												"amazonaws",
-												"com"
-											],
-											"port": "80",
-											"path": [
-												"api",
-												"pages",
-												":page_id",
-												"sections",
-												":id"
-											],
-											"variable": [
-												{
-													"key": "page_id",
-													"value": "2"
-												},
-												{
-													"key": "id",
-													"value": "8"
-												}
-											]
-										}
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "cache-control",
-											"value": "max-age=0, private, must-revalidate"
-										},
-										{
-											"key": "content-length",
-											"value": "40"
-										},
-										{
-											"key": "content-type",
-											"value": "application/json; charset=utf-8"
-										},
-										{
-											"key": "date",
-											"value": "Fri, 02 Oct 2020 19:04:56 GMT"
-										},
-										{
-											"key": "server",
-											"value": "Cowboy"
-										},
-										{
-											"key": "x-request-id",
-											"value": "FjpCSIChVQgXgCkAAAOx"
-										}
-									],
-									"cookie": [],
-									"body": "{\n    \"section\": {\n        \"detail\": \"Section Deleted\"\n    }\n}"
-								}
-							]
+							"response": []
 						}
 					]
 				},
@@ -550,74 +388,7 @@
 							]
 						}
 					},
-					"response": [
-						{
-							"name": "create",
-							"originalRequest": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"page\": \n    {\n        \"name\": \"pageNameTest\",\n        \"type\" : 1,\n        \"description\":\"some description\",\n        \"status\" : 1\n    }\n }\n\n        ",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "http://ec2-3-238-26-99.compute-1.amazonaws.com:80/api/pages",
-									"protocol": "http",
-									"host": [
-										"ec2-3-238-26-99",
-										"compute-1",
-										"amazonaws",
-										"com"
-									],
-									"port": "80",
-									"path": [
-										"api",
-										"pages"
-									]
-								}
-							},
-							"status": "Created",
-							"code": 201,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "cache-control",
-									"value": "max-age=0, private, must-revalidate"
-								},
-								{
-									"key": "content-length",
-									"value": "92"
-								},
-								{
-									"key": "content-type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "date",
-									"value": "Fri, 02 Oct 2020 18:52:41 GMT"
-								},
-								{
-									"key": "location",
-									"value": "/api/pages/2"
-								},
-								{
-									"key": "server",
-									"value": "Cowboy"
-								},
-								{
-									"key": "x-request-id",
-									"value": "FjpBnYwfqZp9kIIAAADS"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"page\": {\n        \"description\": \"some description\",\n        \"id\": 2,\n        \"name\": \"pageNameTest\",\n        \"status\": 1,\n        \"type\": 1\n    }\n}"
-						}
-					]
+					"response": []
 				},
 				{
 					"name": "get_all",
@@ -642,18 +413,13 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://ec2-3-238-26-99.compute-1.amazonaws.com:80/api/pages",
-									"protocol": "http",
+									"raw": "{{base_url}}/api/travels",
 									"host": [
-										"ec2-3-238-26-99",
-										"compute-1",
-										"amazonaws",
-										"com"
+										"{{base_url}}"
 									],
-									"port": "80",
 									"path": [
 										"api",
-										"pages"
+										"travels"
 									]
 								}
 							},
@@ -667,7 +433,7 @@
 								},
 								{
 									"key": "content-length",
-									"value": "186"
+									"value": "82"
 								},
 								{
 									"key": "content-type",
@@ -675,7 +441,7 @@
 								},
 								{
 									"key": "date",
-									"value": "Fri, 02 Oct 2020 18:53:02 GMT"
+									"value": "Sun, 05 Jun 2022 16:39:57 GMT"
 								},
 								{
 									"key": "server",
@@ -683,11 +449,11 @@
 								},
 								{
 									"key": "x-request-id",
-									"value": "FjpBolflPuqKcOsAAALR"
+									"value": "FvXG9erQlYX7k4IAAAGF"
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"pages\": [\n        {\n            \"description\": \"some other description\",\n            \"id\": 1,\n            \"name\": \"otherPageName\",\n            \"status\": 1,\n            \"type\": 1\n        },\n        {\n            \"description\": \"some description\",\n            \"id\": 2,\n            \"name\": \"pageNameTest\",\n            \"status\": 1,\n            \"type\": 1\n        }\n    ]\n}"
+							"body": "{\n    \"travels\": [\n        {\n            \"arrival\": null,\n            \"departure\": \"2021-09-23T23:00:00\",\n            \"id\": 1,\n            \"status\": 1\n        }\n    ]\n}"
 						}
 					]
 				},
@@ -721,19 +487,20 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://ec2-3-238-26-99.compute-1.amazonaws.com:80/api/pages/2",
-									"protocol": "http",
+									"raw": "{{base_url}}/api/travels/:id",
 									"host": [
-										"ec2-3-238-26-99",
-										"compute-1",
-										"amazonaws",
-										"com"
+										"{{base_url}}"
 									],
-									"port": "80",
 									"path": [
 										"api",
-										"pages",
-										"2"
+										"travels",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
 									]
 								}
 							},
@@ -747,7 +514,7 @@
 								},
 								{
 									"key": "content-length",
-									"value": "92"
+									"value": "79"
 								},
 								{
 									"key": "content-type",
@@ -755,7 +522,7 @@
 								},
 								{
 									"key": "date",
-									"value": "Fri, 02 Oct 2020 18:53:44 GMT"
+									"value": "Sun, 05 Jun 2022 16:40:04 GMT"
 								},
 								{
 									"key": "server",
@@ -763,11 +530,11 @@
 								},
 								{
 									"key": "x-request-id",
-									"value": "FjpBrCbBrjLSbcEAAAMB"
+									"value": "FvXG96r2aN9QUIgAAAHF"
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"page\": {\n        \"description\": \"some description\",\n        \"id\": 2,\n        \"name\": \"pageNameTest\",\n        \"status\": 1,\n        \"type\": 1\n    }\n}"
+							"body": "{\n    \"travel\": {\n        \"arrival\": null,\n        \"departure\": \"2021-09-23T23:00:00\",\n        \"id\": 1,\n        \"status\": 1\n    }\n}"
 						}
 					]
 				},
@@ -807,11 +574,11 @@
 						{
 							"name": "update_one",
 							"originalRequest": {
-								"method": "PATCH",
+								"method": "PUT",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"page\": \n    {\n        \"name\": \"name\"\n    }\n }\n\n        ",
+									"raw": "{\n    \"travel\": \n    {\n        \"departure\": \"2021-09-23T23:00:00\"\n    }\n }\n\n        ",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -819,19 +586,20 @@
 									}
 								},
 								"url": {
-									"raw": "http://ec2-3-238-26-99.compute-1.amazonaws.com:80/api/pages/1",
-									"protocol": "http",
+									"raw": "{{base_url}}/api/travels/:id",
 									"host": [
-										"ec2-3-238-26-99",
-										"compute-1",
-										"amazonaws",
-										"com"
+										"{{base_url}}"
 									],
-									"port": "80",
 									"path": [
 										"api",
-										"pages",
-										"1"
+										"travels",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
 									]
 								}
 							},
@@ -845,7 +613,7 @@
 								},
 								{
 									"key": "content-length",
-									"value": "90"
+									"value": "79"
 								},
 								{
 									"key": "content-type",
@@ -853,7 +621,7 @@
 								},
 								{
 									"key": "date",
-									"value": "Fri, 02 Oct 2020 18:54:26 GMT"
+									"value": "Sun, 05 Jun 2022 16:40:17 GMT"
 								},
 								{
 									"key": "server",
@@ -861,11 +629,11 @@
 								},
 								{
 									"key": "x-request-id",
-									"value": "FjpBtg0OcxksZ5QAAADi"
+									"value": "FvXG-q0LUAZ3344AAAAE"
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"page\": {\n        \"description\": \"some other description\",\n        \"id\": 1,\n        \"name\": \"name\",\n        \"status\": 1,\n        \"type\": 1\n    }\n}"
+							"body": "{\n    \"travel\": {\n        \"arrival\": null,\n        \"departure\": \"2021-09-23T23:00:00\",\n        \"id\": 1,\n        \"status\": 1\n    }\n}"
 						}
 					]
 				},
@@ -892,62 +660,7 @@
 							]
 						}
 					},
-					"response": [
-						{
-							"name": "delete_one",
-							"originalRequest": {
-								"method": "DELETE",
-								"header": [],
-								"url": {
-									"raw": "http://ec2-3-238-26-99.compute-1.amazonaws.com:80/api/pages/4",
-									"protocol": "http",
-									"host": [
-										"ec2-3-238-26-99",
-										"compute-1",
-										"amazonaws",
-										"com"
-									],
-									"port": "80",
-									"path": [
-										"api",
-										"pages",
-										"4"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "cache-control",
-									"value": "max-age=0, private, must-revalidate"
-								},
-								{
-									"key": "content-length",
-									"value": "34"
-								},
-								{
-									"key": "content-type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "date",
-									"value": "Mon, 28 Sep 2020 18:29:18 GMT"
-								},
-								{
-									"key": "server",
-									"value": "Cowboy"
-								},
-								{
-									"key": "x-request-id",
-									"value": "FjkGBHp2s98mr1IAAAXj"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"page\": {\n        \"detail\": \"Page Deleted\"\n    }\n}"
-						}
-					]
+					"response": []
 				}
 			]
 		}

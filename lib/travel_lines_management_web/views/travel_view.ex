@@ -3,11 +3,11 @@ defmodule TravelLinesManagementWeb.TravelView do
   alias TravelLinesManagementWeb.TravelView
 
   def render("index.json", %{travels: travels}) do
-    %{data: render_many(travels, TravelView, "travel.json")}
+    %{travels: render_many(travels, TravelView, "travel.json")}
   end
 
   def render("show.json", %{travel: travel}) do
-    %{data: render_one(travel, TravelView, "travel.json")}
+    %{travel: render_one(travel, TravelView, "travel.json")}
   end
 
   def render("travel.json", %{travel: travel}) do

@@ -42,15 +42,15 @@ Headers: `Content-Type: application/json`
 **RESPONSE**
 ```json
 {
-    "data": {
+    "travel_details": {
         "arrival": null,
         "departure": null,
-        "id": 1,
         "passangers_get_down_stop": 7,
         "passangers_get_on_stop": 3,
         "passangers_on_board": 11,
         "status": 1,
-        "stop": null
+        "stop": null,
+        "travel_id": 1
     }
 }
 ```
@@ -69,11 +69,10 @@ Headers: `x-access-token`
 **RESPONSE**
 ```json
 {
-    "data": [
+    "travel_details": [
         {
             "arrival": null,
             "departure": null,
-            "id": 1,
             "passangers_get_down_stop": 0,
             "passangers_get_on_stop": 10,
             "passangers_on_board": 10,
@@ -87,12 +86,12 @@ Headers: `x-access-token`
                 "order": 1,
                 "status": 1,
                 "time": "05:50:00"
-            }
+            },
+            "travel_id": 1
         },
         {
             "arrival": null,
             "departure": null,
-            "id": 1,
             "passangers_get_down_stop": 0,
             "passangers_get_on_stop": 5,
             "passangers_on_board": 15,
@@ -106,12 +105,12 @@ Headers: `x-access-token`
                 "order": 2,
                 "status": 1,
                 "time": "05:55:00"
-            }
+            },
+            "travel_id": 1
         },
         {
             "arrival": null,
             "departure": null,
-            "id": 1,
             "passangers_get_down_stop": 7,
             "passangers_get_on_stop": 3,
             "passangers_on_board": 11,
@@ -125,7 +124,8 @@ Headers: `x-access-token`
                 "order": 3,
                 "status": 1,
                 "time": "06:13:00"
-            }
+            },
+            "travel_id": 1
         }
     ]
 }
