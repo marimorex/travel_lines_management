@@ -18,21 +18,21 @@ defmodule TravelLinesManagementWeb.TravelDetailController do
     end
   end
 
-  def show(conn, %{"id" => id}) do
-    travel_detail = Trip.get_travel_detail!(id)
+  def show(conn, %{"travel_id" => travel_id,"id" => stop_id}) do
+    travel_detail = Trip.get_travel_detail!(travel_id, stop_id)
     render(conn, "show.json", travel_detail: travel_detail)
   end
 
-  def update(conn, %{"id" => id, "travel_detail" => travel_detail_params}) do
-    travel_detail = Trip.get_travel_detail!(id)
+  def update(conn, %{"travel_id" => travel_id,"id" => stop_id, "travel_detail" => travel_detail_params}) do
+    travel_detail = Trip.get_travel_detail!(travel_id, stop_id)
 
     with {:ok, %TravelDetail{} = travel_detail} <- Trip.update_travel_detail(travel_detail, travel_detail_params) do
       render(conn, "show.json", travel_detail: travel_detail)
     end
   end
 
-  def delete(conn, %{"id" => id}) do
-    travel_detail = Trip.get_travel_detail!(id)
+  def delete(conn, %{"travel_id" => travel_id,"id" => stop_id}) do
+    travel_detail = Trip.get_travel_detail!(travel_id, stop_id)
 
     with {:ok, %TravelDetail{}} <- Trip.delete_travel_detail(travel_detail) do
       send_resp(conn, :no_content, "")

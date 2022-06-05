@@ -403,6 +403,7 @@ defmodule TravelLinesManagement.Trip do
   """
   def list_travel_details do
     Repo.all(TravelDetail)
+    |> Repo.preload([:stop])
   end
 
   @doc """
@@ -419,7 +420,7 @@ defmodule TravelLinesManagement.Trip do
       ** (Ecto.NoResultsError)
 
   """
-  def get_travel_detail!(id), do: Repo.get!(TravelDetail, id)
+  def get_travel_detail!(travel_id, stop_id), do: TravelDetail.get_one(travel_id,stop_id) |> Repo.one
 
   def get_previus_travel_detail_by_travel_id(travel_id), do: TravelDetail.getPreviousTravelDetail(travel_id) |> Repo.one
 

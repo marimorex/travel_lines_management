@@ -30,4 +30,8 @@ defmodule TravelLinesManagement.Trip.TravelDetail do
     from td in __MODULE__, where: td.travel_id == ^travel_id, order_by: [desc: td.inserted_at], limit: 1
   end
 
+  def get_one(travel_id,stop_id) do
+    from td in __MODULE__, where: td.travel_id == ^travel_id and td.stop_id == ^stop_id
+  end
+
 end
